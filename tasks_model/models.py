@@ -16,7 +16,7 @@ class Task(models.Model):
         ACTIVE = 1, _("Активно")
         DONE = 2, _("Выполнено")
     title = models.CharField(max_length=256, verbose_name=_("Заголовок"))
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name=_("Автор"))
     note = models.TextField(default="", verbose_name=_("Задание"))
     status = models.IntegerField(default=Status.POSTPONED, choices=Status.choices, verbose_name=_("Статус"))
     importance = models.BooleanField(default=False, verbose_name=_("Важно"))
